@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Validador de CEP</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="icon" type="image/svg" href="icon.svg">
+</head>
+
+<body>
+
+	<div class="container">
+		<header>
+			<h1>Validador de CEP</h1>
+			<p class="lead">
+				Insira um CEP para validar (formato: <code>00000-000</code> ou somente números).
+			</p>
+		</header>
+
+		<main class="card" role="main">
+			<form id="cepForm" onsubmit="return false;" autocomplete="off">
+				<div class="form-row">
+					<div style="flex:1">
+						<label for="cep">CEP</label>
+						<input
+							id="cep"
+							name="cep"
+							type="text"
+							inputmode="numeric"
+							maxlength="9"
+							placeholder="_____-___"
+							aria-describedby="cepHelp"
+						/>
+						<div id="cepHelp" class="hint">
+							Digite apenas números ou o CEP já formatado.
+						</div>
+					</div>
+				</div>
+
+				<div class="controls">
+					<button type="button" class="secondary" id="clearBtn">Limpar</button>
+					<button type="button" class="secondary" id="copyBtn">Copiar (formatado)</button>
+					<button type="button" class="secondary" id="copyDigitsBtn">Copiar (só dígitos)</button>
+				</div>
+
+				<div id="feedback" aria-live="polite" class="msg" style="display:none"></div>
+			</form>
+
+			<section style="margin-top:18px">
+				<h2 style="font-size:1rem;margin:0 0 8px 0">Como funciona a validação</h2>
+				<p class="hint">
+					O validador verifica se o CEP possui 8 dígitos numéricos válidos,
+					ignora caracteres não numéricos e rejeita sequências inválidas
+					como <code>00000000</code>.
+				</p>
+			</section>
+		</main>
+
+		<footer>Este aplicativo apenas verifica se um CEP é válido.</footer>
+	</div>
+
+	<script src="assets/js/script.js"></script>
+</body>
+
+</html>
